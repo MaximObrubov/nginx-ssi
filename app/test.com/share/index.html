@@ -3,7 +3,28 @@
 <head>
   <!--#set var="imgBasePath" value="https://static.uchi.ru/files/new-year-activities/share" -->
   <!--#set var="key" value="${arg_key}" -->
-  <!--#set var="name" value="${arg_name}" -->
+  <!--#set var="imgCurrent" value="${imgBasePath}/${key}_fb.png" -->
+  <!--# if expr="$key = grisha" -->
+    <!--#set var="name" value="Гриша" -->
+  <!--# endif -->
+  <!--# if expr="$key = sonya" -->
+    <!--#set var="name" value="Соня" -->
+  <!--# endif -->
+  <!--# if expr="$key = ba" -->
+    <!--#set var="name" value="Ба" -->
+  <!--# endif -->
+  <!--# if expr="$key = sosed" -->
+    <!--#set var="name" value="Сосед Дипло" -->
+  <!--# endif -->
+  <!--# if expr="$key = knysh" -->
+    <!--#set var="name" value="Кныш" -->
+  <!--# endif -->
+  <!--# if expr="$key = captain" -->
+    <!--#set var="name" value="Капитан Хрум" -->
+  <!--# endif -->
+  <!--# if expr="$key = pterlok" -->
+    <!--#set var="name" value="Птерлок" -->
+  <!--# endif -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,26 +33,20 @@
   <meta content="Узнай, кто ты из вселенной завриков на UCHi.RU" name="description" />
   
   <!-- facebook -->
-  <meta property="og:url" content=<!--# echo var="request_uri" --> />
+  <meta property="og:url" content="https://new-year.uchi.ru/test" />
   <meta property="og:title" content="Мой динотип - <!--# echo var="name" -->" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="Узнай, кто ты из вселенной завриков на UCHi.RU" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content=<!--# echo var="imgCurrent" --> />
   <link rel="canonical" href=<!--# echo var="request_uri" --> />
   <link rel="image_src" href=<!--# echo var="imgCurrent" default="" --> />
   <!-- /facebook -->
-  <link href="https://cdnjs.uchi.ru/libs/ui-lib-fonts/0.1.0-rc.16/fonts.css" rel="stylesheet">
-  <link rel="shortcut icon" href="<%=require('./images/favicon.ico').default%>" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="<%=require('./images/favicon.png').default%>">
-  <link rel="apple-touch-icon" sizes="76x76" href="<%=require('./images/favicon.png').default%>">
-  <link rel="apple-touch-icon" sizes="152x152" href="<%=require('./images/favicon.png').default%>">
-  <link rel="apple-touch-startup-image" href="<%=require('./images/favicon.png').default%>">
 </head>
 <body>
   
   
-  <h1>Мой динотип - <!--# echo var="name" --></h1>
-  <img src="<!--# echo var="imgBasePath" -->/<!--# echo var="name" -->_fb.png" alt="">
+  <h1>Мой динотип - <!--# echo var="name" encoding="none" --></h1>
+  <img src="<!--# echo var="imgCurrent" -->" alt="">
     
 </body>
 </html>

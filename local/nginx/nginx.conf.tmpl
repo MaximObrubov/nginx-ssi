@@ -1,0 +1,32 @@
+daemon on;
+user nginx;
+worker_processes auto;
+
+error_log /dev/stderr debug;
+pid /var/run/nginx.pid;
+
+events {
+  worker_connections 1024;
+}
+
+http {
+  include /etc/nginx/mime.types;
+  default_type  application/octet-stream;
+  
+  log_format tracing '$remote_addr - $remote_user [$time_local] "$request" '
+                     '$status $body_bytes_sent "$http_referer" '
+                     '[tid:$http_x_b3_traceid]  "$http_user_agent" "$http_x_forwarded_for"';
+
+  access_log /dev/stdout tracing;
+  sendfile on;
+  keepalive_timeout 65;
+  
+  __UPSTREAMS__
+  
+  server {
+    listen 3000;
+    listen [::]:3000;
+    server_name _;
+    include __CONF_PATH__;
+  }
+}

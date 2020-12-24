@@ -1,6 +1,6 @@
 version: '3'
 services:
-  ngoxy:
+  nginx_ssi:
     container_name: nginx_ssi
     build: .
     ports:

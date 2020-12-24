@@ -1,8 +1,9 @@
 FROM nginx:latest
-COPY app /usr/share/nginx/html
+COPY app /var/www/
 # COPY run.sh /usr/share/nginx/run.sh
 COPY conf/locations.conf /local/locations.conf
 COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/conf.d /etc/nginx/conf.d
 # RUN ./usr/share/nginx/run.sh
 
 RUN echo '================================'
